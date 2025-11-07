@@ -332,6 +332,9 @@ class SteamRevenueCalculator {
         
         // Show the per-dev section
         this.showPerDevSection();
+        
+        // Auto-recalculate per-dev if fields are already filled
+        this.autoRecalculatePerDev();
     }
 
     updateTotalRevenueDisplay(estimatedUsers, grossRevenue, afterSteamCut, afterDiscounts, finalRevenue) {
@@ -360,6 +363,30 @@ class SteamRevenueCalculator {
         setTimeout(() => {
             perDevSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 300);
+    }
+
+    autoRecalculatePerDev() {
+        // Check if the per-dev section is visible and has values
+        const perDevSection = document.getElementById('perDevSection');
+        if (perDevSection.classList.contains('hidden')) {
+            return; // Per-dev section not shown yet, skip auto-calculation
+        }
+
+        const devCountInput = document.getElementById('devCount');
+        const devTimeInput = document.getElementById('devTime');
+        
+        const devCount = parseFloat(devCountInput.value);
+        const devTime = parseFloat(devTimeInput.value);
+
+        // Only auto-recalculate if both fields have valid values
+        if (!isNaN(devCount) && !isNaN(devTime) && devCount > 0 && devTime > 0) {
+            // Calculate per developer metrics
+            const revenuePerDev = this.totalRevenue / devCount;
+            const yearlyPerDev = revenuePerDev / devTime;
+
+            // Update the display
+            this.updatePerDevDisplay(revenuePerDev, yearlyPerDev);
+        }
     }
 
     calculatePerDeveloper() {
