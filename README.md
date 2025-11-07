@@ -2,6 +2,8 @@
 
 A web-based tool to estimate potential revenue for Steam games based on review counts and pricing data. This calculator helps game developers and publishers get rough revenue estimates using publicly available Steam data.
 
+🌐 **Use the calculator online:** https://saturn91.github.io/steamRevenueCalculation/
+
 ## Features
 
 - **Two Input Methods:**
@@ -107,13 +109,6 @@ Final Revenue = Review Count × Price × 17.64
 - `script.js` - Core calculator logic and Steam API integration
 - `styles.css` - Application styling
 - `example.json` - Sample data structure for testing
-
-## Development
-
-To run locally:
-1. Clone this repository
-2. Open `index.html` in a web browser
-3. No build process or server required
 
 ## Contributing
 
