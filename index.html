@@ -15,25 +15,60 @@
             <div class="formula-breakdown">
                 <h3>📋 Formula Breakdown</h3>
                 <div class="formula-steps">
-                    <p><strong>Step 1:</strong> Reviews × 40 = Estimated Users</p>
-                    <p><strong>Step 2:</strong> Users × Price = Gross Revenue</p>
-                    <p><strong>Step 3:</strong> × 0.7 (Steam's 30% cut)</p>
-                    <p><strong>Step 4:</strong> × 0.7 (Discounts & regional pricing)</p>
-                    <p><strong>Step 5:</strong> × 0.9 (Generic modifier)</p>
+                    <p><strong>Step 1:</strong> Reviews x 40 = Estimated Users</p>
+                    <p><strong>Step 2:</strong> Users x Price = Gross Revenue</p>
+                    <p><strong>Step 3:</strong> x 0.7 (Steam's 30% cut)</p>
+                    <p><strong>Step 4:</strong> x 0.7 (Discounts & regional pricing)</p>
+                    <p><strong>Step 5:</strong> x 0.9 (Generic modifier)</p>
                 </div>
             </div>
         </header>
 
         <div class="calculator-section">
             <h2>📊 Total Estimated Revenue</h2>
-            <div class="input-group">
-                <label for="reviewCount">Steam Reviews Count</label>
-                <input type="number" id="reviewCount" placeholder="Enter number of reviews" min="0">
+            
+            <div class="input-method-toggle">
+                <button type="button" class="toggle-btn" data-method="manual">Manual Input</button>
+                <button type="button" class="toggle-btn active" data-method="url">Steam URL</button>
             </div>
             
-            <div class="input-group">
-                <label for="steamPrice">Steam Price ($)</label>
-                <input type="number" id="steamPrice" placeholder="Enter game price" min="0" step="0.01">
+            <div id="manualInputs" class="input-method-section hidden">
+                <div class="input-group">
+                    <label for="reviewCount">Steam Reviews Count</label>
+                    <input type="number" id="reviewCount" placeholder="Enter number of reviews" min="0">
+                </div>
+                
+                <div class="input-group">
+                    <label for="steamPrice">Steam Price ($)</label>
+                    <input type="number" id="steamPrice" placeholder="Enter game price" min="0" step="0.01">
+                </div>
+            </div>
+            
+            <div id="urlInputs" class="input-method-section">
+                <div class="input-group">
+                    <label for="steamUrl">Steam Store URL</label>
+                    <input type="url" id="steamUrl" placeholder="https://store.steampowered.com/app/123456/GameName/">
+                </div>
+                
+                <button type="button" class="btn-fetch">🔍 Fetch Game Data</button>
+                
+                <div id="fetchedData" class="fetched-data hidden">
+                    <div class="game-info">
+                        <h4 id="gameName">Game Name</h4>
+                        <div class="data-preview">
+                            <span>Reviews: <strong id="previewReviews">-</strong></span>
+                            <span>Price: <strong id="previewPrice">-</strong></span>
+                        </div>
+                    </div>
+                    
+                    <div id="manualReviewInput" class="manual-review-input hidden">
+                        <div class="input-group">
+                            <label for="fetchedReviewCount">Reviews Count</label>
+                            <input type="number" id="fetchedReviewCount" placeholder="Enter review count manually" min="0">
+                        </div>
+                        <small>Steam API doesn't provide review counts. Please check the game's Steam page and enter the review count manually.</small>
+                    </div>
+                </div>
             </div>
             
             <button id="calculateRevenue" class="btn-primary">Calculate Total Revenue</button>

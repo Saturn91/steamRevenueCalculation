@@ -109,6 +109,48 @@ header p {
     gap: 15px;
 }
 
+.input-method-toggle {
+    display: flex;
+    background: #2a475e;
+    border-radius: 8px;
+    padding: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #316282;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    color: #8f98a0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.toggle-btn.active {
+    background: #66c0f4;
+    color: #171a21;
+    font-weight: 600;
+}
+
+.toggle-btn:hover:not(.active) {
+    background: rgba(102, 192, 244, 0.1);
+    color: #c7d5e0;
+}
+
+.input-method-section {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.input-method-section.hidden {
+    display: none;
+}
+
 .input-group label {
     width: 160px;
     min-width: 160px;
@@ -175,6 +217,72 @@ header p {
     background: linear-gradient(135deg, #4a8c1a 0%, #3d7315 100%);
     transform: translateY(-1px);
     box-shadow: 0 6px 15px rgba(91, 168, 36, 0.4);
+}
+
+.btn-fetch {
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    background: linear-gradient(135deg, #ff6b35 0%, #e85a2b 100%);
+    color: white;
+    margin-bottom: 15px;
+}
+
+.btn-fetch:hover {
+    background: linear-gradient(135deg, #e85a2b 0%, #d44b21 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(255, 107, 53, 0.4);
+}
+
+.fetched-data {
+    margin-top: 15px;
+    padding: 15px;
+    background: #1b2838;
+    border-radius: 8px;
+    border: 1px solid #316282;
+}
+
+.game-info h4 {
+    color: #66c0f4;
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.data-preview {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.data-preview span {
+    color: #8f98a0;
+    font-size: 0.85rem;
+}
+
+.data-preview strong {
+    color: #c7d5e0;
+    font-weight: 600;
+}
+
+.manual-review-input {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #316282;
+}
+
+.manual-review-input small {
+    display: block;
+    margin-top: 8px;
+    color: #8f98a0;
+    font-size: 0.75rem;
+    line-height: 1.3;
 }
 
 .result-box {
