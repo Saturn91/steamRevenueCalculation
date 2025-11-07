@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saturn91's Steam Revenue Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Saturn91's Steam Revenue Calculator</h1>
+            <p>Calculate estimated revenue from your Steam game</p>
+            
+            <div class="formula-breakdown">
+                <h3>📋 Formula Breakdown</h3>
+                <div class="formula-steps">
+                    <p><strong>Step 1:</strong> Reviews × 40 = Estimated Users</p>
+                    <p><strong>Step 2:</strong> Users × Price = Gross Revenue</p>
+                    <p><strong>Step 3:</strong> × 0.7 (Steam's 30% cut)</p>
+                    <p><strong>Step 4:</strong> × 0.7 (Discounts & regional pricing)</p>
+                    <p><strong>Step 5:</strong> × 0.9 (Generic modifier)</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="calculator-section">
+            <h2>📊 Total Estimated Revenue</h2>
+            <div class="input-group">
+                <label for="reviewCount">Steam Reviews Count</label>
+                <input type="number" id="reviewCount" placeholder="Enter number of reviews" min="0">
+            </div>
+            
+            <div class="input-group">
+                <label for="steamPrice">Steam Price ($)</label>
+                <input type="number" id="steamPrice" placeholder="Enter game price" min="0" step="0.01">
+            </div>
+            
+            <button id="calculateRevenue" class="btn-primary">Calculate Total Revenue</button>
+            
+            <div id="totalRevenueResult" class="result-box hidden">
+                <h3>Calculation Breakdown:</h3>
+                <div class="breakdown">
+                    <p><strong>Estimated Users:</strong> <span id="estimatedUsers">0</span></p>
+                    <p><strong>Gross Revenue:</strong> $<span id="grossRevenue">0</span></p>
+                    <p><strong>After Steam Cut (30%):</strong> $<span id="afterSteamCut">0</span></p>
+                    <p><strong>After Discounts & Pricing (30%):</strong> $<span id="afterDiscounts">0</span></p>
+                    <p class="total-revenue"><strong>Final Estimated Revenue:</strong> $<span id="finalRevenue">0</span></p>
+                </div>
+            </div>
+
+            <div id="perDevSection" class="section-card hidden">
+                <h2>👥 Revenue Per Developer</h2>
+                <div class="input-group">
+                    <label for="devCount">Number of Developers</label>
+                    <input type="number" id="devCount" placeholder="Enter dev team size" min="1">
+                </div>
+                
+                <div class="input-group">
+                    <label for="devTime">Development Time (Years)</label>
+                    <input type="number" id="devTime" placeholder="Enter development years" min="0.1" step="0.1">
+                </div>
+                
+                <button id="calculatePerDev" class="btn-secondary">Calculate Per Developer</button>
+                
+                <div id="perDevResult" class="result-box hidden">
+                    <h3>Per Developer Breakdown:</h3>
+                    <div class="breakdown">
+                        <p><strong>Revenue per Developer:</strong> $<span id="revenuePerDev">0</span></p>
+                        <p class="yearly-earnings"><strong>Yearly Earnings per Dev:</strong> $<span id="yearlyPerDev">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-content">
+                <small>* Estimates based on industry averages and may vary significantly</small>
+                <div class="copyright">
+                    <p>© 2025 <a href="https://saturn91.dev" target="_blank" rel="noopener noreferrer">saturn91.dev</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
